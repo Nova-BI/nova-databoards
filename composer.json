@@ -1,0 +1,39 @@
+{
+    "name": "cord/nova-databoards",
+    "description": "Powerful BI Databoards for Nova",
+    "keywords": [
+        "laravel",
+        "nova",
+        "databoard",
+        "dashboard",
+        "analytics"
+
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cord\\NovaDataboards\\": "src/",
+            "Cord\\NovaDataboards\\Nova\\": "src/Nova/",
+            "Cord\\NovaDataboards\\Nova\\Databoardables\\": "src/Nova/Databoardables"
+        },
+        "files": [
+            "src/Helpers/Files.php",
+            "src/Nova/Databoardables/Standard.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cord\\NovaDataboards\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
