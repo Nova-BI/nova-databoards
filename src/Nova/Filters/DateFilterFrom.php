@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\Filters;
+namespace Cord\NovaDataboards\Nova\Filters;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;

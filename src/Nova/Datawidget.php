@@ -82,16 +82,6 @@ class Datawidget extends Resource
 
 
     /**
-     * Get the value that should be displayed to represent the resource.
-     *
-     * @return string
-     */
-    public function title()
-    {
-        return $this->name;
-    }
-
-    /**
      * Get the displayable singular label of the resource.
      *
      * @return  string
@@ -117,7 +107,7 @@ class Datawidget extends Resource
             return class_basename($metricable) != 'BaseMetric';
         });
 */
-        $datametricables = config('nova-databoards.morphables.resources.datametricables.resources');
+        $datametricables = config('nova-databoards.datametricables.resources');
 
 //dd($datametricables);
         $fields = [

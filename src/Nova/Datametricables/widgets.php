@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\Datametricables;
+namespace Cord\NovaDataboards\Nova\Datametricables;
 
 use DigitalCreative\InlineMorphTo\HasInlineMorphToFields;
 use Illuminate\Http\Request;

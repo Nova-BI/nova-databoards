@@ -4,15 +4,18 @@
 namespace Cord\NovaDataboards\Models\Datametricables;
 
 use Cord\NovaDataboards\Models\Databoard;
+use Cord\NovaDataboards\Models\Datavisualables\Partition;
+use Cord\NovaDataboards\Models\Datavisualables\Trend;
+use Cord\NovaDataboards\Models\Datavisualables\Value;
 use Cord\NovaDataboards\Models\Datawidget;
-use App\Nova\Filters\DateRangeDefined;
+use Cord\NovaDataboards\Nova\Filters\DateRangeDefined;
 use Cord\NovaDataboards\Traits\HasSchemalessAttributesTrait;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Nova\Metrics\TrendResult;
 use Illuminate\Http\Request;
 
 
-class BaseDatametricables extends Model
+class BaseDatametricable extends Model
 {
     use HasSchemalessAttributesTrait;
 
@@ -20,11 +23,17 @@ class BaseDatametricables extends Model
     public $timestamps = true;
 
     // supported visuals
-    var $visualisationTypes = ['Value', 'Trend', 'Partition'];
+    var $visualisationTypes = [];
 
     public $casts = [
         'extra_attributes' => 'array',
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+    }
 
     /**
      * @return string[]

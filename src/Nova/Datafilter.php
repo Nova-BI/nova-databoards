@@ -2,49 +2,57 @@
 
 namespace Cord\NovaDataboards\Nova;
 
-use App\Nova\Situation;
-use Cord\NovaDataboards\Nova\Databoardables\BaseFilter;
-
 use Laravel\Nova\Resource;
 
+use Cord\NovaDataboards\Nova\Datametricables\myMetric;
+use Cord\NovaDataboards\Nova\Datavisualables\Value;
 use Cord\NovaDataboards\Traits\LoadMorphablesTrait;
-
+use Comodolab\Nova\Fields\Help\Help;
 use Digitalazgroup\PlainText\PlainText;
-use Eminiarts\Tabs\Tabs;
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use DigitalCreative\InlineMorphTo\InlineMorphTo;
 use DigitalCreative\InlineMorphTo\HasInlineMorphToFields;
-use NovaAttachMany\AttachMany;
+use Eminiarts\Tabs\Tabs;
+use Eminiarts\Tabs\TabsOnEdit;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\HasOne;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Textarea;
 use Saumini\Count\RelationshipCount;
 use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
 
-class DataboardConfiguration extends Resource
+use function Cord\NovaDataboards\Helpers\Files\getClassesList;
+
+
+class Datafilter extends Resource
 {
+
 //    public static $displayInNavigation = false;
 
-    use HasSortableRows;
     use HasInlineMorphToFields;
-    use LoadMorphablesTrait;
-
 
 //    use TabsOnEdit;
 
-    // Use this Trait
+    use HasSortableRows;
+
+    use LoadMorphablesTrait;
 
     public static $defaultSortField = 'sort_order';
 
     public static $group = 'Databoard';
+
 
     /**
      * The model the resource corresponds to.
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Databoard::class;
+    public static $model = \Cord\NovaDataboards\Models\Datafilter::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -59,7 +67,7 @@ class DataboardConfiguration extends Resource
      * @var  array
      */
     public static $search = [
-        'name'
+        'id'
     ];
 
     /**
@@ -69,8 +77,9 @@ class DataboardConfiguration extends Resource
      */
     public static function label()
     {
-        return __('Databoard Configuration');
+        return __('Datafilters');
     }
+
 
     /**
      * Get the displayable singular label of the resource.
@@ -79,8 +88,9 @@ class DataboardConfiguration extends Resource
      */
     public static function singularLabel()
     {
-        return __('Databoard Configuration');
+        return __('Datafilter');
     }
+
 
     /**
      * Get the fields displayed by the resource.
@@ -90,22 +100,22 @@ class DataboardConfiguration extends Resource
      */
     public function fields(Request $request)
     {
-
-        $databoardables = config('nova-databoards.databoardables.resources');
-
         /*
-         * todo: autoload from config('nova-databoards.databoardables.paths')
-        $databoardables = $this->loadMorphables(config('nova-databoards.databoardables'));
-        $databoardables = array_filter($databoardables, function ($boardable) {
-            return class_basename($boardable) != 'BaseBoard';
+        $loadPath = base_path(config('nova-databoards.path') . 'Nova/Datametricables');
+        $datametricables = $this->loadMorphables($loadPath);
+        $datametricables = array_filter($datametricables, function ($metricable) {
+            return class_basename($metricable) != 'BaseMetric';
         });
-        */
+*/
+        $datafilterables = config('nova-databoards.datafilterables.resources');
 
+//dd($datametricables);
         $fields = [
-            InlineMorphTo::make(__('Board Type'), 'databoardable')
-                ->types($databoardables)->required()->hideFromIndex()
-//                ->default(),
+            InlineMorphTo::make(__('Datafilter'), 'filterable')
+                ->types($datafilterables)
+                ->default(''),
         ];
+
 
         return
             array_merge(
@@ -123,44 +133,15 @@ class DataboardConfiguration extends Resource
                 ],
                 $fields,
                 [
-                    PlainText::make(__('Databoard Type'), function () {
-                        if (method_exists($this->databoardable, 'label')) {
-                            return $this->databoardable->label();
-                        }
-                        return '';
-                    }),
-
-
-
-                    AttachMany::make(__('Filters'), 'datafilters', Datafilter::class)
-                        ->rules('min:1')
-                        ->showCounts()
-                        ->help('Select a Filters to attach')->onlyOnForms(),
-
-                    AttachMany::make(__('Widgets'), 'datawidgets', Datawidget::class)
-                        ->rules('min:1')
-                        ->showCounts()
-                        ->help('Select a Widgets to attach')->onlyOnForms(),
-
-                    RelationshipCount::make('Data Widgets', 'datawidgets')->onlyOnIndex(),
-                    RelationshipCount::make('Data Filters', 'datafilters')->onlyOnIndex(),
-
+                    RelationshipCount::make('Databoards', 'Databoards')->onlyOnIndex(),
                     (new Tabs('Relations', [
-                        'Data Widgets' => [
-                            BelongsToMany::make('datawidgets')
-                                ->rules('required')
-
-                        ],
-                        'Data Filters' => [
-                            BelongsToMany::make('datafilters')
-                                ->rules('required')
+                        'Databoards' => [
+                            BelongsToMany::make(__('Databoards'), 'Databoards', DataboardConfiguration::class)->rules('required')
 
                         ]
                     ]))->defaultSearch(true),
-
                 ]
             );
-
     }
 
     /**
@@ -207,4 +188,14 @@ class DataboardConfiguration extends Resource
         return [];
     }
 
+
+    /**
+     * Get the URI key for the resource.
+     *
+     * @return string
+     */
+    public static function uriKey()
+    {
+        return 'databoardFilter';
+    }
 }

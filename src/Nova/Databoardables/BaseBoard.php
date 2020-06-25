@@ -7,6 +7,7 @@ use Cord\NovaDataboards\Traits\LoadMorphablesTrait;
 use DigitalCreative\InlineMorphTo\HasInlineMorphToFields;
 use DigitalCreative\InlineMorphTo\InlineMorphTo;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 
@@ -55,11 +56,14 @@ class BaseBoard extends Resource
      */
     public function fields(Request $request)
     {
+
+
         return array_merge(
-            $this->boardFields($request),
             [
-//                Text::make(__('test'), 'test')
-            ]
+            ],
+            $this->boardFields($request),
+
+            []
         );
     }
 

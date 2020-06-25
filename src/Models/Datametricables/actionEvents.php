@@ -4,19 +4,24 @@ namespace Cord\NovaDataboards\Models\Datametricables;
 
 
 use Cord\NovaDataboards\Models\Datawidget;
-use App\Nova\Filters\ActionEventType;
-use App\Nova\Filters\DateFilterFrom;
-use App\Nova\Filters\DateFilterTo;
+use Cord\NovaDataboards\Nova\Filters\ActionEventType;
+use Cord\NovaDataboards\Nova\Filters\DateFilterFrom;
+use Cord\NovaDataboards\Nova\Filters\DateFilterTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Actions\ActionEvent;
 
-class actionEvents extends BaseDatametricables
+class actionEvents extends BaseDatametricable
 {
+    /*
+     * configure supported visualisationTypes
+     * methode 'calculate' must return a valid calculation
+     */
+
     var $visualisationTypes = ['Value', 'Trend', 'Partition'];
 
     public static function getResourceModel()
     {
-        return \App\Nova\Datametricables\actionEvents::class;
+        return \Cord\NovaDataboards\Nova\Datametricables\actionEvents::class;
     }
 
     public function getActionEventsMetricOptionAttribute()

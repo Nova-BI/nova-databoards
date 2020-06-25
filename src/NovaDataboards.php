@@ -4,6 +4,7 @@ namespace Cord\NovaDataboards;
 
 use Cord\NovaDataboards\Nova\Databoard;
 use Cord\NovaDataboards\Nova\Databoardables\Standard;
+use Cord\NovaDataboards\Nova\Datafilter;
 use Cord\NovaDataboards\Nova\Datawidget;
 use Cord\NovaDataboards\Nova\DataboardConfiguration;
 use Laravel\Nova\Nova;
@@ -26,6 +27,10 @@ class NovaDataboards extends Tool
      * @var mixed
      */
     public $datawidgetResource = Datawidget::class;
+    /**
+     * @var mixed
+     */
+    public $datafilterResource = Datafilter::class;
 
     /**
      * Perform any tasks that need to happen when the tool is booted.
@@ -41,11 +46,13 @@ class NovaDataboards extends Tool
             $this->databoardResource,
             $this->databoardConfigurationResource,
             $this->datawidgetResource,
-            Standard::class
+            $this->datafilterResource,
+//            Standard::class
         ]);
-        Nova::resources(config('nova-databoards.morphables.resources.databoardables.resources'));
-        Nova::resources(config('nova-databoards.morphables.resources.datametricables.resources'));
-        Nova::resources(config('nova-databoards.morphables.resources.datavisualables.resources'));
+        Nova::resources(config('nova-databoards.databoardables.resources'));
+        Nova::resources(config('nova-databoards.datafilterables.resources'));
+        Nova::resources(config('nova-databoards.datametricables.resources'));
+        Nova::resources(config('nova-databoards.datavisualables.resources'));
     }
 
     /**

@@ -3,11 +3,9 @@
 namespace Cord\NovaDataboards\Nova;
 
 use Laravel\Nova\Resource;
-use App\Nova\Filters\ActionEventType;
-use App\Nova\Filters\DateFilterFrom;
-use App\Nova\Filters\DateFilterTo;
-use App\Nova\Filters\DateRangeDefined;
-use App\Nova\Filters\DateRangePicker;
+use Cord\NovaDataboards\Nova\Filters\ActionEventType;
+use Cord\NovaDataboards\Nova\Filters\DateFilterFrom;
+use Cord\NovaDataboards\Nova\Filters\DateFilterTo;
 
 use Ericlagarda\NovaTextCard\TextCard;
 use Illuminate\Http\Request;
@@ -100,27 +98,39 @@ class Databoard extends Resource
                 ->headingAsHtml()
                 ->onlyOnDetail(),
 
-            (new NovaGlobalFilter\NovaGlobalFilter([
-                new DateFilterFrom(),
-                new DateFilterTo(),
-                new ActionEventType()
-            ]))
-                ->onlyOnDetail()
-                ->inline()
-            ,
+
         ];
 
         $widgetCards = [];
+        $filterCards = [];
+        $filterPanel = [];
 
-        // collect the data widgets
 
         if ($databoard) {
             /**
              * @var $databoard \Cord\NovaDataboards\Models\Databoard
              */
+
+
+            // collect data filters
+            $databoard->datafilters->each(function ($datafilter, $key) use (&$filterCards) {
+                /**
+                 * @var $datafilter \Cord\NovaDataboards\Models\Datafilter
+                 */
+                // set widget id and label as meta data (added to the URI) in \App\Traits\DynamicMetricsTrait::uriKey
+                // must be static to map between data request URI and the metric visualisation
+                $filterCards[] = (new $datafilter->filterable->filter)
+//                    ->width($datafilter->filterable->cardWidth)
+                    ->withMeta([]);
+            });
+            $filterPanel =
+                [
+                    (new NovaGlobalFilter\NovaGlobalFilter($filterCards))->onlyOnDetail()->inline()
+                ];
+            // collect the data widgets
             $databoard->datawidgets->each(function ($datawidget, $key) use (&$widgetCards) {
                 /**
-                 * @var $datawidget Datawidget
+                 * @var $datawidget \Cord\NovaDataboards\Models\Datawidget
                  */
                 // set widget id and label as meta data (added to the URI) in \App\Traits\DynamicMetricsTrait::uriKey
                 // must be static to map between data request URI and the metric visualisation
@@ -130,7 +140,7 @@ class Databoard extends Resource
             });
         }
 
-        return array_merge($headerCards, $widgetCards);
+        return array_merge($headerCards, $filterPanel, $widgetCards);
     }
 
     /**

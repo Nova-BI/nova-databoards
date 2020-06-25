@@ -4,17 +4,22 @@ namespace Cord\NovaDataboards\Models\Datametricables;
 
 
 use Cord\NovaDataboards\Models\Datawidget;
-use App\Nova\Filters\DateFilterFrom;
-use App\Nova\Filters\DateFilterTo;
+use Cord\NovaDataboards\Nova\Filters\DateFilterFrom;
+use Cord\NovaDataboards\Nova\Filters\DateFilterTo;
 use Illuminate\Http\Request;
 
-class widgets extends BaseDatametricables
+class widgets extends BaseDatametricable
 {
+    /*
+     * configure supported visualisationTypes
+     * methode 'calculate' must return a valid calculation
+     */
+
     var $visualisationTypes = ['Value', 'Partition'];
 
     public static function getResourceModel()
     {
-        return \App\Nova\Datametricables\widgets::class;
+        return \Cord\NovaDataboards\Nova\Datametricables\widgets::class;
     }
 
     public function getWidgetsMetricOptionAttribute()

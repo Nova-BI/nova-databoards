@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 
-class Databoard extends Model implements Sortable
+class Datafilter extends Model implements Sortable
 {
     use SortableTrait;
 
@@ -20,23 +20,19 @@ class Databoard extends Model implements Sortable
         'sort_when_creating' => true,
     ];
 
-    protected $table = 'databoards';
+    protected $table = 'datafilters';
     public $timestamps = true;
 
     public $translatable = ['description'];
 
-    public function databoardable()
+    public function filterable()
     {
         return $this->morphTo();
     }
 
-    public function datawidgets()
+    public function databoards()
     {
-        return $this->belongsToMany(Datawidget::class)->orderBy('datawidgets.sort_order', 'asc');
-    }
-    public function datafilters()
-    {
-        return $this->belongsToMany(Datafilter::class)->orderBy('datafilters.sort_order', 'asc');
+        return $this->belongsToMany(Databoard::class)->orderBy('databoards.sort_order', 'asc');
     }
 
 }

@@ -2,16 +2,16 @@
 
 namespace Cord\NovaDataboards\Models\Datavisualables;
 
-class Value extends BaseDatavisualables
+class Value extends BaseDatavisualable
 {
-    // mapping to visual in App\Models\Datavisualables\Visuals
-    var $visual = 'Value';
+    // mapping to visual
+    var $visual = \Cord\NovaDataboards\Models\Datavisualables\Visuals\Value::class;
 
     // supported card Widths
     var $cardWidthSupported = ['1/3'];
 
     public static function getResourceModel() {
-        return \App\Nova\Datavisualables\Value::class;
+        return \Cord\NovaDataboards\Nova\Datavisualables\Value::class;
     }
 
     public function getMyFirstValueAttribute()

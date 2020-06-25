@@ -2,15 +2,15 @@
 
 namespace Cord\NovaDataboards\Models\Datavisualables;
 
-class Partition extends BaseDatavisualables
+class Partition extends BaseDatavisualable
 {
-    // mapping to visual in App\Models\Datavisualables\Visuals
-    var $visual = 'Partition';
+    // mapping to visual
+    var $visual = \Cord\NovaDataboards\Models\Datavisualables\Visuals\Partition::class;
 
     // supported card Widths
     var $cardWidthSupported = ['1/3', '2/3', 'full'];
 
     public static function getResourceModel() {
-        return \App\Nova\Datavisualables\Partition::class;
+        return \Cord\NovaDataboards\Nova\Datavisualables\Partition::class;
     }
 }

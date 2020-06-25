@@ -3,15 +3,21 @@
 namespace Cord\NovaDataboards\Models\Datametricables;
 
 
-use App\Nova\Filters\DateFilterFrom;
-use App\Nova\Filters\DateFilterTo;
+use Cord\NovaDataboards\Nova\Filters\DateFilterFrom;
+use Cord\NovaDataboards\Nova\Filters\DateFilterTo;
 use App\User;
 use Illuminate\Http\Request;
 
-class users extends BaseDatametricables
+class users extends BaseDatametricable
 {
+    /*
+     * configure supported visualisationTypes
+     * methode 'calculate' must return a valid calculation
+     */
 
-    var $visualisationTypes = ['Value', 'Trend'
+    var $visualisationTypes = [
+        'Value',
+        'Trend'
 
 //        , 'Partition' // Bug in Nova https://github.com/laravel/nova-issues/issues/2681
 
@@ -19,7 +25,7 @@ class users extends BaseDatametricables
 
     public static function getResourceModel()
     {
-        return \App\Nova\Datametricables\users::class;
+        return \Cord\NovaDataboards\Nova\Datametricables\users::class;
     }
 
     public function getOnlyVerifiedEmailAttribute()

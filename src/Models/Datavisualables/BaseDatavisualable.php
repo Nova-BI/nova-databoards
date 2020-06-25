@@ -3,20 +3,20 @@
 
 namespace Cord\NovaDataboards\Models\Datavisualables;
 
-use Cord\NovaDataboards\Models\Datametricables\BaseDatametricables;
+use Cord\NovaDataboards\Models\Datametricables\BaseDatametricable;
 use Cord\NovaDataboards\Traits\HasSchemalessAttributesTrait;
 use Illuminate\Database\Eloquent\Model;
 
 
-class BaseDatavisualables extends Model
+class BaseDatavisualable extends Model
 {
     use HasSchemalessAttributesTrait;
 
     protected $table = 'datavisual_standard';
     public $timestamps = true;
 
-    // mapping to visual in App\Models\Datavisualables\Visuals
-    var $visual = 'Value';
+    // mapping to visual
+    var $visual = \Cord\NovaDataboards\Models\Datavisualables\Visuals\Value::class;
 
     public $casts = [
         'extra_attributes' => 'array',
@@ -30,12 +30,12 @@ class BaseDatavisualables extends Model
 
     public function metrics()
     {
-        return $this->morphMany(BaseDatametricables::class, 'visualables');
+        return $this->morphMany(BaseDatametricable::class, 'visualables');
     }
 
     public function getVisualisation()
     {
-        $classname = "\\App\\Models\\Datavisualables\\visuals\\" . $this->visual;
+        $classname = $this->visual;
         return (new $classname())->onlyOnDetail();
     }
 

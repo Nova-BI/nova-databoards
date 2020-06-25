@@ -3,6 +3,7 @@
 namespace Cord\NovaDataboards\Nova\Datametricables;
 
 use App\Nova\Resource;
+use Cord\NovaDataboards\Models\Datavisualables\Value;
 use Cord\NovaDataboards\Traits\LoadMorphablesTrait;
 use DigitalCreative\InlineMorphTo\HasInlineMorphToFields;
 use DigitalCreative\InlineMorphTo\InlineMorphTo;
@@ -27,7 +28,7 @@ class BaseMetric extends Resource
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Datametricables\BaseDatametricables::class;
+    public static $model = \Cord\NovaDataboards\Models\Datametricables\BaseDatametricable::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -58,7 +59,7 @@ class BaseMetric extends Resource
             [
                 InlineMorphTo::make(__('Visualisation'), 'visualable')
                     ->types($this->loadVisualables())
-                    ->default(\App\Nova\Datavisualables\Value::class)
+                    ->default(\Cord\NovaDataboards\Models\Datavisualables\Value::class)
                     ->onlyOnForms()
             ]);
     }
@@ -85,8 +86,12 @@ class BaseMetric extends Resource
 //        $loadPath = base_path(config('nova-databoards.path') . 'Nova/Datavisualables');
 //        $datavisualables = $this->loadMorphables($loadPath);
 
-        $datavisualables = config('nova-databoards.morphables.resources.datavisualables.resources');
+        /*
+         * load all visualisationTypes from configuration
+         * the metric-methode 'calculate' must return a valid calculation
+         */
 
+        $datavisualables = config('nova-databoards.datavisualables.resources');
         $datavisualables = array_filter($datavisualables, function ($visual) {
             return in_array(class_basename($visual), $this->newModel()->getVisualisationTypes());
         });

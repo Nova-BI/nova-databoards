@@ -30,4 +30,9 @@ class BaseDataboardable extends Model
         return $this->morphMany(Databoard::class, 'databoardable');
     }
 
+
+    public function filterable()
+    {
+        return $this->morphTo();
+    }
 }

@@ -2,20 +2,22 @@
 
 namespace Cord\NovaDataboards\Models\Datametricables;
 use Cord\NovaDataboards\Models\Databoard;
-use App\Nova\Filters\DateFilterFrom;
-use App\Nova\Filters\DateFilterTo;
-use App\Nova\Filters\DateRangeDefined;
-use App\Nova\Filters\DateRangePicker;
+use Cord\NovaDataboards\Nova\Filters\DateFilterFrom;
+use Cord\NovaDataboards\Nova\Filters\DateFilterTo;
 use Illuminate\Http\Request;
-use Laravel\Nova\Metrics\TrendResult;
 
-class boards extends BaseDatametricables
+class boards extends BaseDatametricable
 {
+    /*
+     * configure supported visualisationTypes
+     * methode 'calculate' must return a valid calculation
+     */
+
     var $visualisationTypes = ['Value', 'Trend'];
 
     public static function getResourceModel()
     {
-        return \App\Nova\Datametricables\boards::class;
+        return \Cord\NovaDataboards\Nova\Datametricables\boards::class;
     }
 
     public function getBoardsMetricOptionAttribute()
