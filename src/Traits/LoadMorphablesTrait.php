@@ -1,8 +1,8 @@
 <?php
 
-namespace Cord\NovaDataboards\Traits;
+namespace NovaBI\NovaDataboards\Traits;
 
-use function Cord\NovaDataboards\Helpers\Files\getClassesList;
+use function NovaBI\NovaDataboards\Helpers\Files\getClassesList;
 
 trait LoadMorphablesTrait
 {

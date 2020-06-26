@@ -1,9 +1,9 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova\Databoardables;
+namespace NovaBI\NovaDataboards\Nova\Databoardables;
 
 use App\Nova\Resource;
-use Cord\NovaDataboards\Traits\LoadMorphablesTrait;
+use NovaBI\NovaDataboards\Traits\LoadMorphablesTrait;
 use DigitalCreative\InlineMorphTo\HasInlineMorphToFields;
 use DigitalCreative\InlineMorphTo\InlineMorphTo;
 use Illuminate\Http\Request;
@@ -30,7 +30,7 @@ class BaseBoard extends Resource
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Databoardables\BaseDataboardable::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Databoardables\BaseDataboardable::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

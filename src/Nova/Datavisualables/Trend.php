@@ -1,6 +1,6 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova\Datavisualables;
+namespace NovaBI\NovaDataboards\Nova\Datavisualables;
 
 use App\Nova\Resource;
 use Illuminate\Http\Request;
@@ -18,7 +18,7 @@ class Trend extends BaseVisual
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Datavisualables\Trend::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Datavisualables\Trend::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

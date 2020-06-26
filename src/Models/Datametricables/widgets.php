@@ -1,11 +1,11 @@
 <?php
 
-namespace Cord\NovaDataboards\Models\Datametricables;
+namespace NovaBI\NovaDataboards\Models\Datametricables;
 
 
-use Cord\NovaDataboards\Models\Datawidget;
-use Cord\NovaDataboards\Nova\Filters\DateFilterFrom;
-use Cord\NovaDataboards\Nova\Filters\DateFilterTo;
+use NovaBI\NovaDataboards\Models\Datawidget;
+use NovaBI\NovaDataboards\Nova\Filters\DateFilterFrom;
+use NovaBI\NovaDataboards\Nova\Filters\DateFilterTo;
 use Illuminate\Http\Request;
 
 class widgets extends BaseDatametricable
@@ -19,7 +19,7 @@ class widgets extends BaseDatametricable
 
     public static function getResourceModel()
     {
-        return \Cord\NovaDataboards\Nova\Datametricables\widgets::class;
+        return \NovaBI\NovaDataboards\Nova\Datametricables\widgets::class;
     }
 
     public function getWidgetsMetricOptionAttribute()
@@ -35,7 +35,7 @@ class widgets extends BaseDatametricable
     public function calculate(Request $request, $visual)
     {
         switch ($this->visualable_type) {
-            case \Cord\NovaDataboards\Models\Datavisualables\Value::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Value::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Value
                  */
@@ -58,7 +58,7 @@ class widgets extends BaseDatametricable
 
                 break;
 
-            case \Cord\NovaDataboards\Models\Datavisualables\Partition::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Partition::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Partition
                  */

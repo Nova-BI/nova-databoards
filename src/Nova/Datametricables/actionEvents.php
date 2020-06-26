@@ -1,6 +1,6 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova\Datametricables;
+namespace NovaBI\NovaDataboards\Nova\Datametricables;
 
 use DigitalCreative\InlineMorphTo\HasInlineMorphToFields;
 use Illuminate\Http\Request;
@@ -21,7 +21,7 @@ class actionEvents extends BaseMetric
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Datametricables\actionEvents::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Datametricables\actionEvents::class;
 
     /**
      * Get the fields displayed by the resource.

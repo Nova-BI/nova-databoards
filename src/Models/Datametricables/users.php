@@ -1,10 +1,10 @@
 <?php
 
-namespace Cord\NovaDataboards\Models\Datametricables;
+namespace NovaBI\NovaDataboards\Models\Datametricables;
 
 
-use Cord\NovaDataboards\Nova\Filters\DateFilterFrom;
-use Cord\NovaDataboards\Nova\Filters\DateFilterTo;
+use NovaBI\NovaDataboards\Nova\Filters\DateFilterFrom;
+use NovaBI\NovaDataboards\Nova\Filters\DateFilterTo;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -25,7 +25,7 @@ class users extends BaseDatametricable
 
     public static function getResourceModel()
     {
-        return \Cord\NovaDataboards\Nova\Datametricables\users::class;
+        return \NovaBI\NovaDataboards\Nova\Datametricables\users::class;
     }
 
     public function getOnlyVerifiedEmailAttribute()
@@ -43,7 +43,7 @@ class users extends BaseDatametricable
     public function calculate(Request $request, $visual)
     {
         switch ($this->visualable_type) {
-            case \Cord\NovaDataboards\Models\Datavisualables\Value::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Value::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Value
                  */
@@ -74,7 +74,7 @@ class users extends BaseDatametricable
                 */
                 break;
 
-            case \Cord\NovaDataboards\Models\Datavisualables\Trend::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Trend::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Trend
                  */
@@ -85,7 +85,7 @@ class users extends BaseDatametricable
                 return $visual->countByDays($request, $filteredModel)->showLatestValue();
 
                 break;
-            case \Cord\NovaDataboards\Models\Datavisualables\Partition::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Partition::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Partition
                  */

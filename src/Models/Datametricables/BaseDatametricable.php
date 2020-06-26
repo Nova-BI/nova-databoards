@@ -1,15 +1,15 @@
 <?php
 
 
-namespace Cord\NovaDataboards\Models\Datametricables;
+namespace NovaBI\NovaDataboards\Models\Datametricables;
 
-use Cord\NovaDataboards\Models\Databoard;
-use Cord\NovaDataboards\Models\Datavisualables\Partition;
-use Cord\NovaDataboards\Models\Datavisualables\Trend;
-use Cord\NovaDataboards\Models\Datavisualables\Value;
-use Cord\NovaDataboards\Models\Datawidget;
-use Cord\NovaDataboards\Nova\Filters\DateRangeDefined;
-use Cord\NovaDataboards\Traits\HasSchemalessAttributesTrait;
+use NovaBI\NovaDataboards\Models\Databoard;
+use NovaBI\NovaDataboards\Models\Datavisualables\Partition;
+use NovaBI\NovaDataboards\Models\Datavisualables\Trend;
+use NovaBI\NovaDataboards\Models\Datavisualables\Value;
+use NovaBI\NovaDataboards\Models\Datawidget;
+use NovaBI\NovaDataboards\Nova\Filters\DateRangeDefined;
+use NovaBI\NovaDataboards\Traits\HasSchemalessAttributesTrait;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Nova\Metrics\TrendResult;
 use Illuminate\Http\Request;
@@ -59,7 +59,7 @@ class BaseDatametricable extends Model
     {
 
         switch ($this->visualable_type) {
-            case \Cord\NovaDataboards\Models\Datavisualables\Value::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Value::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Value
                  */
@@ -81,7 +81,7 @@ class BaseDatametricable extends Model
 
                 break;
 
-            case \Cord\NovaDataboards\Models\Datavisualables\Trend::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Trend::class :
 
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Trend

@@ -1,11 +1,11 @@
 <?php
 
-namespace Cord\NovaDataboards\Models\Datafilterables;
+namespace NovaBI\NovaDataboards\Models\Datafilterables;
 
 class DateTo extends BaseDatafilterable
 {
     // mapping to filter
-    var $filter = \Cord\NovaDataboards\Nova\Filters\DateFilterTo::class;
+    var $filter = \NovaBI\NovaDataboards\Nova\Filters\DateFilterTo::class;
 
     // supported card Widths
     var $cardWidthSupported = ['1/3'];

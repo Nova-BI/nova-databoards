@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Cord\NovaDataboards\Models\Datafilterables;
+namespace NovaBI\NovaDataboards\Models\Datafilterables;
 
-use Cord\NovaDataboards\Traits\HasSchemalessAttributesTrait;
+use NovaBI\NovaDataboards\Traits\HasSchemalessAttributesTrait;
 use Illuminate\Database\Eloquent\Model;
 
 

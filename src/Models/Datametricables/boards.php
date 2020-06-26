@@ -1,9 +1,9 @@
 <?php
 
-namespace Cord\NovaDataboards\Models\Datametricables;
-use Cord\NovaDataboards\Models\Databoard;
-use Cord\NovaDataboards\Nova\Filters\DateFilterFrom;
-use Cord\NovaDataboards\Nova\Filters\DateFilterTo;
+namespace NovaBI\NovaDataboards\Models\Datametricables;
+use NovaBI\NovaDataboards\Models\Databoard;
+use NovaBI\NovaDataboards\Nova\Filters\DateFilterFrom;
+use NovaBI\NovaDataboards\Nova\Filters\DateFilterTo;
 use Illuminate\Http\Request;
 
 class boards extends BaseDatametricable
@@ -17,7 +17,7 @@ class boards extends BaseDatametricable
 
     public static function getResourceModel()
     {
-        return \Cord\NovaDataboards\Nova\Datametricables\boards::class;
+        return \NovaBI\NovaDataboards\Nova\Datametricables\boards::class;
     }
 
     public function getBoardsMetricOptionAttribute()
@@ -35,7 +35,7 @@ class boards extends BaseDatametricable
     public function calculate(Request $request, $visual)
     {
         switch ($this->visualable_type) {
-            case \Cord\NovaDataboards\Models\Datavisualables\Value::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Value::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Value
                  */
@@ -58,7 +58,7 @@ class boards extends BaseDatametricable
 
                 break;
 
-            case \Cord\NovaDataboards\Models\Datavisualables\Trend::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Trend::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Trend
                  */

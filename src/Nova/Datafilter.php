@@ -1,12 +1,12 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova;
+namespace NovaBI\NovaDataboards\Nova;
 
 use Laravel\Nova\Resource;
 
-use Cord\NovaDataboards\Nova\Datametricables\myMetric;
-use Cord\NovaDataboards\Nova\Datavisualables\Value;
-use Cord\NovaDataboards\Traits\LoadMorphablesTrait;
+use NovaBI\NovaDataboards\Nova\Datametricables\myMetric;
+use NovaBI\NovaDataboards\Nova\Datavisualables\Value;
+use NovaBI\NovaDataboards\Traits\LoadMorphablesTrait;
 use Comodolab\Nova\Fields\Help\Help;
 use Digitalazgroup\PlainText\PlainText;
 use DigitalCreative\InlineMorphTo\InlineMorphTo;
@@ -26,7 +26,7 @@ use Saumini\Count\RelationshipCount;
 use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
 
-use function Cord\NovaDataboards\Helpers\Files\getClassesList;
+use function NovaBI\NovaDataboards\Helpers\Files\getClassesList;
 
 
 class Datafilter extends Resource
@@ -52,7 +52,7 @@ class Datafilter extends Resource
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Datafilter::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Datafilter::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

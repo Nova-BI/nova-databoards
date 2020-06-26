@@ -1,6 +1,6 @@
 <?php
 
-namespace Cord\NovaDataboards\Helpers\Files;
+namespace NovaBI\NovaDataboards\Helpers\Files;
 
 //https://stackoverflow.com/questions/31837075/laravel-get-list-of-models
 function getClassesList($dir)

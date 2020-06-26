@@ -1,19 +1,20 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova;
+namespace NovaBI\NovaDataboards\Nova;
 
 use Laravel\Nova\Resource;
-use Cord\NovaDataboards\Nova\Filters\ActionEventType;
-use Cord\NovaDataboards\Nova\Filters\DateFilterFrom;
-use Cord\NovaDataboards\Nova\Filters\DateFilterTo;
+use NovaBI\NovaDataboards\Nova\Filters\ActionEventType;
+use NovaBI\NovaDataboards\Nova\Filters\DateFilterFrom;
+use NovaBI\NovaDataboards\Nova\Filters\DateFilterTo;
 
 use Ericlagarda\NovaTextCard\TextCard;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use NrmlCo\NovaBigFilter\NovaBigFilter;
+use Pdmfc\NovaCards\Info;
 use Timothyasp\Badge\Badge;
 use Nemrutco\NovaGlobalFilter;
-use Cord\NovaDataboards\Nova\Metrics\UsersPerDay;
+use NovaBI\NovaDataboards\Nova\Metrics\UsersPerDay;
 
 class Databoard extends Resource
 {
@@ -27,7 +28,7 @@ class Databoard extends Resource
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Databoard::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Databoard::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -86,6 +87,13 @@ class Databoard extends Resource
      */
     public function cards(Request $request)
     {
+        if (Databoard::count() == 0) {
+            return [
+                (new Info())->info(__('Please <a href="databoard-configurations" class="text-primary dim no-underline">configure your first Databoard</a>'))->asHtml()
+            ];
+        }
+
+
         $databoard = Databoard::find($request->resourceId);
 
         // build header cards
@@ -108,14 +116,14 @@ class Databoard extends Resource
 
         if ($databoard) {
             /**
-             * @var $databoard \Cord\NovaDataboards\Models\Databoard
+             * @var $databoard \NovaBI\NovaDataboards\Models\Databoard
              */
 
 
             // collect data filters
             $databoard->datafilters->each(function ($datafilter, $key) use (&$filterCards) {
                 /**
-                 * @var $datafilter \Cord\NovaDataboards\Models\Datafilter
+                 * @var $datafilter \NovaBI\NovaDataboards\Models\Datafilter
                  */
                 // set widget id and label as meta data (added to the URI) in \App\Traits\DynamicMetricsTrait::uriKey
                 // must be static to map between data request URI and the metric visualisation
@@ -130,7 +138,7 @@ class Databoard extends Resource
             // collect the data widgets
             $databoard->datawidgets->each(function ($datawidget, $key) use (&$widgetCards) {
                 /**
-                 * @var $datawidget \Cord\NovaDataboards\Models\Datawidget
+                 * @var $datawidget \NovaBI\NovaDataboards\Models\Datawidget
                  */
                 // set widget id and label as meta data (added to the URI) in \App\Traits\DynamicMetricsTrait::uriKey
                 // must be static to map between data request URI and the metric visualisation

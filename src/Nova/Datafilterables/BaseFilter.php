@@ -1,10 +1,10 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova\Datafilterables;
+namespace NovaBI\NovaDataboards\Nova\Datafilterables;
 
 use App\Nova\Resource;
-use Cord\NovaDataboards\Models\Datafilterables\BaseDatafilterable;
-use Cord\NovaDataboards\Traits\LoadMorphablesTrait;
+use NovaBI\NovaDataboards\Models\Datafilterables\BaseDatafilterable;
+use NovaBI\NovaDataboards\Traits\LoadMorphablesTrait;
 use DigitalCreative\InlineMorphTo\HasInlineMorphToFields;
 use DigitalCreative\InlineMorphTo\InlineMorphTo;
 use Illuminate\Http\Request;

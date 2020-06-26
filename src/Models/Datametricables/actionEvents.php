@@ -1,12 +1,12 @@
 <?php
 
-namespace Cord\NovaDataboards\Models\Datametricables;
+namespace NovaBI\NovaDataboards\Models\Datametricables;
 
 
-use Cord\NovaDataboards\Models\Datawidget;
-use Cord\NovaDataboards\Nova\Filters\ActionEventType;
-use Cord\NovaDataboards\Nova\Filters\DateFilterFrom;
-use Cord\NovaDataboards\Nova\Filters\DateFilterTo;
+use NovaBI\NovaDataboards\Models\Datawidget;
+use NovaBI\NovaDataboards\Nova\Filters\ActionEventType;
+use NovaBI\NovaDataboards\Nova\Filters\DateFilterFrom;
+use NovaBI\NovaDataboards\Nova\Filters\DateFilterTo;
 use Illuminate\Http\Request;
 use Laravel\Nova\Actions\ActionEvent;
 
@@ -21,7 +21,7 @@ class actionEvents extends BaseDatametricable
 
     public static function getResourceModel()
     {
-        return \Cord\NovaDataboards\Nova\Datametricables\actionEvents::class;
+        return \NovaBI\NovaDataboards\Nova\Datametricables\actionEvents::class;
     }
 
     public function getActionEventsMetricOptionAttribute()
@@ -37,7 +37,7 @@ class actionEvents extends BaseDatametricable
     public function calculate(Request $request, $visual)
     {
         switch ($this->visualable_type) {
-            case \Cord\NovaDataboards\Models\Datavisualables\Value::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Value::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Value
                  */
@@ -60,7 +60,7 @@ class actionEvents extends BaseDatametricable
                     ->suffix('for fun')->withoutSuffixInflection();
 
                 break;
-            case \Cord\NovaDataboards\Models\Datavisualables\Trend::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Trend::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Trend
                  */
@@ -73,7 +73,7 @@ class actionEvents extends BaseDatametricable
 
                 break;
 
-            case \Cord\NovaDataboards\Models\Datavisualables\Partition::class :
+            case \NovaBI\NovaDataboards\Models\Datavisualables\Partition::class :
                 /**
                  * @var $visual \Laravel\Nova\Metrics\Partition
                  */

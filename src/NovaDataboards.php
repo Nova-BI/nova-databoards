@@ -1,12 +1,12 @@
 <?php
 
-namespace Cord\NovaDataboards;
+namespace NovaBI\NovaDataboards;
 
-use Cord\NovaDataboards\Nova\Databoard;
-use Cord\NovaDataboards\Nova\Databoardables\Standard;
-use Cord\NovaDataboards\Nova\Datafilter;
-use Cord\NovaDataboards\Nova\Datawidget;
-use Cord\NovaDataboards\Nova\DataboardConfiguration;
+use NovaBI\NovaDataboards\Nova\Databoard;
+use NovaBI\NovaDataboards\Nova\Databoardables\Standard;
+use NovaBI\NovaDataboards\Nova\Datafilter;
+use NovaBI\NovaDataboards\Nova\Datawidget;
+use NovaBI\NovaDataboards\Nova\DataboardConfiguration;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cord\NovaDataboards\Models\Databoardables;
+namespace NovaBI\NovaDataboards\Models\Databoardables;
 
 
 class Standard extends BaseDataboardable

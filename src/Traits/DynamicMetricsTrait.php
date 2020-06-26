@@ -1,9 +1,9 @@
 <?php
 
-namespace Cord\NovaDataboards\Traits;
+namespace NovaBI\NovaDataboards\Traits;
 
 
-use Cord\NovaDataboards\Models\Datawidget;
+use NovaBI\NovaDataboards\Models\Datawidget;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 

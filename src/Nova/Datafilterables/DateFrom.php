@@ -1,6 +1,6 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova\Datafilterables;
+namespace NovaBI\NovaDataboards\Nova\Datafilterables;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
@@ -12,7 +12,7 @@ class DateFrom extends BaseFilter
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Datafilterables\DateFrom::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Datafilterables\DateFrom::class;
 
     /**
      * Get the fields displayed by the resource.

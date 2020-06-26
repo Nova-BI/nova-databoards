@@ -1,11 +1,11 @@
 <?php
 
-namespace Cord\NovaDataboards\Models\Datafilterables;
+namespace NovaBI\NovaDataboards\Models\Datafilterables;
 
 class ActionEventTypes extends BaseDatafilterable
 {
     // mapping to filter
-    var $filter = \Cord\NovaDataboards\Nova\Filters\ActionEventType::class;
+    var $filter = \NovaBI\NovaDataboards\Nova\Filters\ActionEventType::class;
 
     // supported card Widths
     var $cardWidthSupported = ['1/3'];

@@ -1,13 +1,13 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova;
+namespace NovaBI\NovaDataboards\Nova;
 
 use App\Nova\Situation;
-use Cord\NovaDataboards\Nova\Databoardables\BaseFilter;
+use NovaBI\NovaDataboards\Nova\Databoardables\BaseFilter;
 
 use Laravel\Nova\Resource;
 
-use Cord\NovaDataboards\Traits\LoadMorphablesTrait;
+use NovaBI\NovaDataboards\Traits\LoadMorphablesTrait;
 
 use Digitalazgroup\PlainText\PlainText;
 use Eminiarts\Tabs\Tabs;
@@ -18,6 +18,7 @@ use Laravel\Nova\Fields\Textarea;
 use DigitalCreative\InlineMorphTo\InlineMorphTo;
 use DigitalCreative\InlineMorphTo\HasInlineMorphToFields;
 use NovaAttachMany\AttachMany;
+use Pdmfc\NovaCards\Info;
 use Saumini\Count\RelationshipCount;
 use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
@@ -44,7 +45,7 @@ class DataboardConfiguration extends Resource
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Databoard::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Databoard::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -131,7 +132,6 @@ class DataboardConfiguration extends Resource
                     }),
 
 
-
                     AttachMany::make(__('Filters'), 'datafilters', Datafilter::class)
                         ->rules('min:1')
                         ->showCounts()
@@ -171,7 +171,14 @@ class DataboardConfiguration extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        $cards = [];
+        if (\NovaBI\NovaDataboards\Models\Datawidget::count() == 0) {
+            $cards[] =(new Info())->info(__('Please <a href="databoardWidget" class="text-primary dim no-underline">configure your first Widget</a>'))->asHtml();
+        }
+        if (\NovaBI\NovaDataboards\Models\Datafilter::count() == 0) {
+            $cards[] =(new Info())->info(__('Please <a href="databoardFilter" class="text-primary dim no-underline">configure your first Filter</a>'))->asHtml();
+        }
+        return $cards;
     }
 
     /**

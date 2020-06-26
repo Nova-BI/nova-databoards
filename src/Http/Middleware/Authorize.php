@@ -1,9 +1,9 @@
 <?php
 
-namespace Cord\NovaDataboards\Http\Middleware;
+namespace NovaBI\NovaDataboards\Http\Middleware;
 
 use Laravel\Nova\Nova;
-use Cord\NovaDataboards\NovaDataboards;
+use NovaBI\NovaDataboards\NovaDataboards;
 
 class Authorize
 {

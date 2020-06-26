@@ -1,10 +1,10 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova\Datametricables;
+namespace NovaBI\NovaDataboards\Nova\Datametricables;
 
 use App\Nova\Resource;
-use Cord\NovaDataboards\Models\Datavisualables\Value;
-use Cord\NovaDataboards\Traits\LoadMorphablesTrait;
+use NovaBI\NovaDataboards\Models\Datavisualables\Value;
+use NovaBI\NovaDataboards\Traits\LoadMorphablesTrait;
 use DigitalCreative\InlineMorphTo\HasInlineMorphToFields;
 use DigitalCreative\InlineMorphTo\InlineMorphTo;
 use Illuminate\Http\Request;
@@ -28,7 +28,7 @@ class BaseMetric extends Resource
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Datametricables\BaseDatametricable::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Datametricables\BaseDatametricable::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -59,8 +59,8 @@ class BaseMetric extends Resource
             [
                 InlineMorphTo::make(__('Visualisation'), 'visualable')
                     ->types($this->loadVisualables())
-                    ->default(\Cord\NovaDataboards\Models\Datavisualables\Value::class)
-                    ->onlyOnForms()
+                    ->default(\NovaBI\NovaDataboards\Models\Datavisualables\Value::class)
+                    ->onlyOnForms()->required()
             ]);
     }
 

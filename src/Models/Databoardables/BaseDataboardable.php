@@ -1,10 +1,10 @@
 <?php
 
-namespace Cord\NovaDataboards\Models\Databoardables;
+namespace NovaBI\NovaDataboards\Models\Databoardables;
 
-use Cord\NovaDataboards\Models\Databoard;
+use NovaBI\NovaDataboards\Models\Databoard;
 
-use Cord\NovaDataboards\Traits\HasSchemalessAttributesTrait;
+use NovaBI\NovaDataboards\Traits\HasSchemalessAttributesTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 

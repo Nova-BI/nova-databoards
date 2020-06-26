@@ -1,6 +1,6 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova\Databoardables;
+namespace NovaBI\NovaDataboards\Nova\Databoardables;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -12,7 +12,7 @@ class Standard extends BaseBoard
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Databoardables\Standard::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Databoardables\Standard::class;
 
     /**
      * Get the fields displayed by the resource.

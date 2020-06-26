@@ -1,5 +1,5 @@
 <?php
-namespace Cord\NovaDataboards\Models;
+namespace NovaBI\NovaDataboards\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Concerns\AsPivot;

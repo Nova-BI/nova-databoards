@@ -1,8 +1,8 @@
 <?php
 
-namespace Cord\NovaDataboards\Models\Datavisualables\Visuals;
+namespace NovaBI\NovaDataboards\Models\Datavisualables\Visuals;
 
-use Cord\NovaDataboards\Traits\DynamicMetricsTrait;
+use NovaBI\NovaDataboards\Traits\DynamicMetricsTrait;
 use Illuminate\Http\Request;
 use Laravel\Nova\Metrics\Value as BaseValue;
 use Nemrutco\NovaGlobalFilter\GlobalFilterable;

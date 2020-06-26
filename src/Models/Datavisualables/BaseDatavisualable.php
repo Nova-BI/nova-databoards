@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Cord\NovaDataboards\Models\Datavisualables;
+namespace NovaBI\NovaDataboards\Models\Datavisualables;
 
-use Cord\NovaDataboards\Models\Datametricables\BaseDatametricable;
-use Cord\NovaDataboards\Traits\HasSchemalessAttributesTrait;
+use NovaBI\NovaDataboards\Models\Datametricables\BaseDatametricable;
+use NovaBI\NovaDataboards\Traits\HasSchemalessAttributesTrait;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -16,7 +16,7 @@ class BaseDatavisualable extends Model
     public $timestamps = true;
 
     // mapping to visual
-    var $visual = \Cord\NovaDataboards\Models\Datavisualables\Visuals\Value::class;
+    var $visual = \NovaBI\NovaDataboards\Models\Datavisualables\Visuals\Value::class;
 
     public $casts = [
         'extra_attributes' => 'array',

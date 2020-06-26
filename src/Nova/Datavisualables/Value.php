@@ -1,6 +1,6 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova\Datavisualables;
+namespace NovaBI\NovaDataboards\Nova\Datavisualables;
 
 use App\Nova\Resource;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class Value extends BaseVisual
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Datavisualables\Value::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Datavisualables\Value::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

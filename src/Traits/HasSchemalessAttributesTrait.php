@@ -1,5 +1,5 @@
 <?php
-namespace Cord\NovaDataboards\Traits;
+namespace NovaBI\NovaDataboards\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\SchemalessAttributes\SchemalessAttributes;

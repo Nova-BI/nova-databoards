@@ -1,6 +1,6 @@
 <?php
 
-namespace Cord\NovaDataboards\Nova\Datametricables;
+namespace NovaBI\NovaDataboards\Nova\Datametricables;
 
 use DigitalCreative\InlineMorphTo\HasInlineMorphToFields;
 use Illuminate\Http\Request;
@@ -25,7 +25,7 @@ class users extends BaseMetric
      *
      * @var  string
      */
-    public static $model = \Cord\NovaDataboards\Models\Datametricables\users::class;
+    public static $model = \NovaBI\NovaDataboards\Models\Datametricables\users::class;
 
     /**
      * Get the fields displayed by the resource.
@@ -38,7 +38,7 @@ class users extends BaseMetric
         return [
             NovaDependencyContainer::make([
                 Boolean::make(__('Only with verified email'), 'only_verified_email'),
-            ])->dependsOn('visualable', \Cord\NovaDataboards\Nova\Datavisualables\Value::class),
+            ])->dependsOn('visualable', \NovaBI\NovaDataboards\Nova\Datavisualables\Value::class),
         ];
     }
 }

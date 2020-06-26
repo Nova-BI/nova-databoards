@@ -1,6 +1,6 @@
 <?php
 
-namespace Cord\NovaDataboards\Models;
+namespace NovaBI\NovaDataboards\Models;
 
 use Rinvex\Attributes\Traits\Attributable;
 use Rinvex\Support\Traits\HasTranslations as HasTranslations;

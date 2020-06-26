@@ -1,6 +1,6 @@
 <?php
-namespace Cord\NovaDataboards\Models;
-use Cord\NovaDataboards\Traits\HasSchemalessAttributesTrait;
+namespace NovaBI\NovaDataboards\Models;
+use NovaBI\NovaDataboards\Traits\HasSchemalessAttributesTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
