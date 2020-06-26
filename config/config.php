@@ -1,10 +1,13 @@
 <?php
 declare(strict_types=1);
 
-
 return [
 
+    // want to show or hide the default tool menu?
+    'showToolMenu' => true,
+
     'databoardables' => [
+        // Todo: make configurable
         'default' => 'todo',
         
         'resources' => [
@@ -20,6 +23,7 @@ return [
      * register the available filters which can be configured for each dashboard
      */
     'datafilterables' => [
+        // Todo: make configurable
         'default' => 'todo',
 
         'resources' => [
@@ -38,6 +42,7 @@ return [
      */
 
     'datametricables' => [
+        // Todo: make configurable
         'default' => 'todo',
 
         'resources' => [
@@ -55,6 +60,7 @@ return [
      * register the available visuals which can be configured for each metric
      */
     'datavisualables' => [
+        // Todo: make configurable
         'default' => 'todo',
 
         /*

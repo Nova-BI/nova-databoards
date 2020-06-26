@@ -19,7 +19,6 @@ use NovaBI\NovaDataboards\Nova\Metrics\UsersPerDay;
 class Databoard extends Resource
 {
 //    public static $displayInNavigation = false;
-//    public static $defaultSortField = 'sort_order';
 
     public static $group = 'Databoard';
 
@@ -186,5 +185,11 @@ class Databoard extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+
+    public static function availableForNavigation(Request $request)
+    {
+        return (config('nova-databoards.showToolMenu') === false);
     }
 }

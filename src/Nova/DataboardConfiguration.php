@@ -25,7 +25,7 @@ use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
 class DataboardConfiguration extends Resource
 {
-//    public static $displayInNavigation = false;
+    public static $displayInNavigation = false;
 
     use HasSortableRows;
     use HasInlineMorphToFields;
@@ -214,4 +214,8 @@ class DataboardConfiguration extends Resource
         return [];
     }
 
+    public static function availableForNavigation(Request $request)
+    {
+        return (config('nova-databoards.showToolMenu') === false);
+    }
 }

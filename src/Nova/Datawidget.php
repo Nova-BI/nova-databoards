@@ -32,7 +32,7 @@ use function NovaBI\NovaDataboards\Helpers\Files\getClassesList;
 class Datawidget extends Resource
 {
 
-//    public static $displayInNavigation = false;
+    public static $displayInNavigation = false;
 
     use HasInlineMorphToFields;
 
@@ -199,6 +199,12 @@ class Datawidget extends Resource
      */
     public static function uriKey()
     {
-        return 'databoardWidget';
+        return 'databoard-widgets';
+    }
+
+
+    public static function availableForNavigation(Request $request)
+    {
+        return (config('nova-databoards.showToolMenu') === false);
     }
 }
