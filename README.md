@@ -3,6 +3,7 @@
 Analytics Databoards for Laravel Nova
 
 
+
 Publish Configuration File
 
     php artisan vendor:publish --provider="NovaBI\NovaDataboards\NovaDataboardsServiceProvider" --tag="config"
@@ -16,13 +17,27 @@ Publish Migrations
 
 ## Playground
 
-Users
+By default the Playground is configured, which will give you following Metrics:
 
-Boards
+- Users
+- Boards
+- Widgets
+- ActionEvents
 
-Widgets
+Following visualisations are available (depending on the Metric)
 
-ActionEvents
+- Value
+- Trend
+- Partition
+
+
+And these Filters are available.    
+
+- DateFrom
+- DateTo
+- ActionEventTypes
+
+
 
 
 

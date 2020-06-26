@@ -1,4 +1,5 @@
 <?php
+
 namespace NovaBI\NovaDataboards\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -18,5 +19,4 @@ class DataboardDatawidget extends Model implements Sortable
 
     protected $table = 'databoard_datawidget';
     public $timestamps = true;
-
 }

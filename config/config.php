@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 
 return [
-    // Manage autoload migrations
-    'autoload_migrations' => true,
 
     'databoardables' => [
         'default' => 'todo',
@@ -12,9 +10,9 @@ return [
         'resources' => [
             \NovaBI\NovaDataboards\Nova\Databoardables\Standard::class, // example databoardable
         ],
-        // load all resources from this path
-        'paths' => [
-        ]
+
+        // TODO: load all resources from these paths
+        'paths' => [ ]
 
     ],
 
@@ -30,14 +28,15 @@ return [
             \NovaBI\NovaDataboards\Nova\Datafilterables\ActionEventTypes::class,
 
         ],
-        // load all resources from this path
-        'paths' => [
-        ]
+
+        // TODO: load all resources from these paths
+        'paths' => [ ]
     ],
 
     /*
      * register the available metrics which can be configured for each dashboard
      */
+
     'datametricables' => [
         'default' => 'todo',
 
@@ -47,9 +46,9 @@ return [
             \NovaBI\NovaDataboards\Nova\Datametricables\widgets::class, // example databoardable
             \NovaBI\NovaDataboards\Nova\Datametricables\actionEvents::class, // example databoardable
         ],
-        // load all resources from this path
-        'paths' => [
-        ]
+
+        // TODO: load all resources from these paths
+        'paths' => [ ]
     ],
 
     /*
@@ -60,15 +59,17 @@ return [
 
         /*
          * by using names you can later re-configure the visualisation for e.g. "Value" when there are new visualisation types available
+         * in you metricable the types can be limit with short-names:
+         *      var $visualisationTypes = ['Value', 'Trend'];
          */
         'resources' => [
             'Value' => \NovaBI\NovaDataboards\Nova\Datavisualables\Value::class,
             'Trend' => \NovaBI\NovaDataboards\Nova\Datavisualables\Trend::class,
             'Partition' => \NovaBI\NovaDataboards\Nova\Datavisualables\Partition::class
         ],
-        // load all resources from this path
-        'paths' => [
-        ]
+
+        // TODO: load all resources from these paths
+        'paths' => [ ]
     ],
 
 ];

@@ -27,7 +27,6 @@
     "php": ">=7.2.0",
     "ampeco/nova-date-range-filter": "^0.1.1",
     "comodolab/nova-help": "^0.3",
-    "digital-creative/collapsible-resource-manager": "^1.2",
     "digital-creative/nova-inline-morph-to": "^0.2",
     "digitalazgroup/nova-plain-text-field": "^0.0.4",
     "dillingham/nova-attach-many": "^1.0",
