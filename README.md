@@ -1,3 +1,5 @@
+![](docs/header.png)
+
 # Nova Databoards
 
 Analytics Databoards for Laravel Nova
@@ -20,7 +22,7 @@ Thanks to [laravel-schemaless-attributes](https://github.com/spatie/laravel-sche
  
 ### filterable and dynamic
 
-By adding the Trait `nova-bi/nova-databoards/src/Traits/DynamicMetricsTrait.php` the Nova-Metrics (or any custom metric card) get filterable 
+By adding the Trait `nova-bi/nova-databoards/src/Traits/DynamicMetricsTrait.php` the Nova-Metrics (or any custom metric card) become attributable. 
 
 Thumbs up to [Muzaffer Dede](https://novapackages.com/collaborators/muzafferdede) for developing [Nova Global Filter](https://novapackages.com/packages/nemrutco/nova-global-filter), which is essential for dynamic updates of the widgets on changing filters.
 
