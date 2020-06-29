@@ -2,11 +2,9 @@
 
 # Nova Databoards
 
-Analytics Databoards for Laravel Nova
+Provides ready-to-use Analytics Databoards for Laravel Nova
 
 ![](docs/nova-databoards-1.gif)
-
-The Benefits of using Nova Databoards compared to the default Nova Metrics:
 
 ### Seperation of metric calculation and visualisation
 
@@ -25,18 +23,6 @@ Thanks to [laravel-schemaless-attributes](https://github.com/spatie/laravel-sche
 By adding the Trait `nova-bi/nova-databoards/src/Traits/DynamicMetricsTrait.php` the Nova-Metrics (or any custom metric card) become attributable. 
 
 Thumbs up to [Muzaffer Dede](https://novapackages.com/collaborators/muzafferdede) for developing [Nova Global Filter](https://novapackages.com/packages/nemrutco/nova-global-filter), which is essential for dynamic updates of the widgets on changing filters.
-
-
-## Table of contents
-
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Playground](#playground)
-- [Extending](#extending)
-- [Roadmap](#roadmap)
-- [Known Issues](#known-issues)
-- [Changelog](#changelog)
-- [License](#license)
 
 
 ## Introduction
@@ -221,6 +207,7 @@ You can place your custom Resources and Models in any subdirectory. To make them
 - data range filter using (https://innologica.github.io/vue2-daterange-picker)
 - enhance filter bar with main filters (always visibile) and secondary filters (click on button to add)
 - Adding layout flexibility to Nova Cards (e.g. height, sort-order)
+- artisan command to generate metrics, visuals
 - adding visuals, e.g. Chart JS, Google Charts, APEX with common data api
 - interactive visuals (todo - click on e.g. a partition will set a filter, which updates all widgets)
 - expose metric data through API for external visualisation
@@ -228,7 +215,7 @@ You can place your custom Resources and Models in any subdirectory. To make them
 - GUI enhancements
     - select metric with icons / description
     - select visuals with icons / description
-    - select filters with icons / description- 
+    - select filters with icons / description
 - drag & drop sorting of widgets 
 
 
@@ -266,6 +253,3 @@ This package is highly depending on following selection of packages from the hug
 ## License
 
 This software is released under [The MIT License (MIT)](LICENSE).
-
-
--
