@@ -1,5 +1,3 @@
-![](docs/header.png)
-
 # Nova Databoards
 
 Provides ready-to-use Analytics Databoards for Laravel Nova
@@ -173,9 +171,9 @@ With the following code the Databoards are directly accessible through the Menu 
     }
 ```
 
-### know issue
-- cards are not updating when navigating directly between databoards using [Collapsible Resource Manager
-](https://novapackages.com/packages/digital-creative/collapsible-resource-manager), probably an issue of nova framework?
+### Known issue
+- cards - and therefor the dashboard - are not updated when navigating directly between resource details views e.g. using [Collapsible Resource Manager
+](https://novapackages.com/packages/digital-creative/collapsible-resource-manager), see [Issue 1:](https://github.com/Nova-BI/nova-databoards/issues/1)
 
 
 
@@ -221,15 +219,11 @@ You can place your custom Resources and Models in any subdirectory. To make them
 
 ## Known issues
 
-- Sorting relation-ships (Widgets -> Boards) are not supported yet, the order of widgets on a dashboard is natural [Nova Sortable](https://github.com/optimistdigital/nova-sortable).
+- Sorting relation-ships (Widgets -> Boards) are not supported yet, the order of widgets on a dashboard is natural [Nova Sortable](https://github.com/optimistdigital/nova-sortable), see https://github.com/optimistdigital/nova-sortable/issues/9
 
-- 2nd level morphto using [Inline MorphTo Field](https://novapackages.com/packages/digital-creative/nova-inline-morph-to) can be edited, but changes are not stored. Should it be read-only as well? 
+- 2nd level morphto using [Inline MorphTo Field](https://novapackages.com/packages/digital-creative/nova-inline-morph-to) can be edited, but changes are not stored. Should it be read-only as well? See https://github.com/dcasia/nova-inline-morph-to/issues/16
 
-- custom filter not showing in global filter card, e.g.
-    - https://novapackages.com/packages/ampeco/nova-date-range-filter
-    - https://novapackages.com/packages/rcknr/nova-multiselect-filter
-    - https://novapackages.com/packages/klepak/nova-multiselect-filter
-    - https://novapackages.com/packages/digital-creative/nova-pill-filter
+- custom filter not showing in global filter card, see https://github.com/nemrutco/nova-global-filter/issues/16
 
 
 ## Credits notice
