@@ -1,6 +1,11 @@
+![](docs/header.png)
+
+
 # Nova Databoards
 
 Provides ready-to-use Analytics Databoards for Laravel Nova
+
+[![Latest Stable Version](https://poser.pugx.org/nova-bi/nova-databoards/v)](//packagist.org/packages/nova-bi/nova-databoards) [![Total Downloads](https://poser.pugx.org/nova-bi/nova-databoards/downloads)](//packagist.org/packages/nova-bi/nova-databoards) [![Latest Unstable Version](https://poser.pugx.org/nova-bi/nova-databoards/v/unstable)](//packagist.org/packages/nova-bi/nova-databoards) [![License](https://poser.pugx.org/nova-bi/nova-databoards/license)](//packagist.org/packages/nova-bi/nova-databoards)
 
 ![](docs/nova-databoards-1.gif)
 
@@ -201,6 +206,8 @@ You can place your custom Resources and Models in any subdirectory. To make them
 
 ## Roadmap
 
+[Open Development tasks on github](https://github.com/Nova-BI/nova-databoards/issues?q=is%3Aopen+is%3Aissue+label%3Adevelopment)
+
 - support for custom filter
 - data range filter using (https://innologica.github.io/vue2-daterange-picker)
 - enhance filter bar with main filters (always visibile) and secondary filters (click on button to add)
@@ -225,6 +232,11 @@ You can place your custom Resources and Models in any subdirectory. To make them
 
 - custom filter not showing in global filter card, see https://github.com/nemrutco/nova-global-filter/issues/16
 
+## Contributing
+
+If you would like to contribute please fork the project and submit a PR.
+
+Check out https://github.com/Nova-BI/nova-databoards/issues for open development tasks and issues.
 
 ## Credits notice
 
