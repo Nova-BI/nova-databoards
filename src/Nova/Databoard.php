@@ -93,20 +93,15 @@ class Databoard extends Resource
         }
 
 
+        if (!$request->resourceId) {
+            return [];
+        }
+
+        /**
+         * @var $databoard \NovaBI\NovaDataboards\Models\Databoard
+         */
         $databoard = Databoard::find($request->resourceId);
 
-        // build header cards
-        $headerCards = [
-            (new TextCard())
-                ->forceFullWidth()
-                ->center(false)
-                ->height(80)
-                ->heading('<h5 class="pl-3 pt-1 font-light">' . __('Databoard') . '</h5><h1 class="pl-3 pb-1 font-light">' . (($databoard) ? $databoard->name : '') . '</h1>')
-                ->headingAsHtml()
-                ->onlyOnDetail(),
-
-
-        ];
 
         $widgetCards = [];
         $filterCards = [];
@@ -114,10 +109,16 @@ class Databoard extends Resource
 
 
         if ($databoard) {
-            /**
-             * @var $databoard \NovaBI\NovaDataboards\Models\Databoard
-             */
-
+            // build header cards
+            $headerCards = [
+                (new TextCard())
+                    ->forceFullWidth()
+                    ->center(false)
+                    ->height(80)
+                    ->heading('<h5 class="pl-3 pt-1 font-light">' . __('Databoard') . '</h5><h1 class="pl-3 pb-1 font-light">' . (($databoard) ? $databoard->name : '') . '</h1>')
+                    ->headingAsHtml()
+                    ->onlyOnDetail(),
+            ];
 
             // collect data filters
             $databoard->datafilters->each(function ($datafilter, $key) use (&$filterCards) {

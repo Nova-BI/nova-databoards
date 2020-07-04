@@ -11,7 +11,7 @@ class CreateDatawidgetsTable extends Migration
         Schema::create('datawidgets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->json('description')->nullable();
+            $table->text('description')->nullable();
             $table->integer('metricable_id');
             $table->string('metricable_type');
             $table->schemalessAttributes('extra_attributes');

@@ -10,7 +10,7 @@ class CreateDatafiltersTable extends Migration
         Schema::create('datafilters', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->json('description')->nullable();
+            $table->text('description')->nullable();
             $table->integer('filterable_id');
             $table->string('filterable_type');
             $table->schemalessAttributes('extra_attributes');
