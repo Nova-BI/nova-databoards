@@ -1,3 +1,6 @@
+This package has been replaced by https://github.com/Nova-BI/nova-dashboard-manager
+
+
 ![](docs/header.png)
 
 
